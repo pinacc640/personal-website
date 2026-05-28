@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客 - 我的个人网站</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .blog-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .blog-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .blog-title:hover {
+            color: #667eea;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">我的网站</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="blog.html">博客</a></li>
+                <li><a href="resources.html">资源分享</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 内容区域 -->
+    <section class="content" style="padding-top: 4rem;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">博客文章</h2>
+            
+            <div class="blog-list">
+                <!-- 文章1 -->
+                <article class="blog-item">
+                    <div class="blog-date">2026年5月28日</div>
+                    <a href="posts/post-1.html" class="blog-title">欢迎来到我的博客</a>
+                    <div class="blog-excerpt">
+                        这是我的第一篇博客文章。在这里，我将分享我的学习心得、项目经验和生活感悟。希望这些内容对你有所帮助...
+                    </div>
+                    <a href="posts/post-1.html" class="read-more">阅读全文 →</a>
+                    <div class="blog-tags">
+                        <span class="tag">随笔</span>
+                        <span class="tag">开始</span>
+                    </div>
+                </article>
+                
+                <!-- 文章2 -->
+                <article class="blog-item">
+                    <div class="blog-date">2026年5月27日</div>
+                    <a href="posts/post-2.html" class="blog-title">如何搭建个人网站</a>
+                    <div class="blog-excerpt">
+                        今天我来分享一下如何从零开始搭建一个个人网站。整个过程非常简单，不需要编程知识，只需要按照步骤操作即可...
+                    </div>
+                    <a href="posts/post-2.html" class="read-more">阅读全文 →</a>
+                    <div class="blog-tags">
+                        <span class="tag">教程</span>
+                        <span class="tag">网站</span>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- 广告位 -->
+            <div class="ad-space">
+                <p>📢 广告位</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 我的个人网站. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
