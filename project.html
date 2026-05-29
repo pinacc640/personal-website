@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小红书笔记批量制作工具 - 我的个人网站</title>
+    <title>小红书封面卡片生成工具 - 我的个人网站</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="video-background.css">
 </head>
@@ -35,8 +35,8 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-eyebrow fade-in fade-in-1">Project</div>
-            <h1 class="page-title fade-in fade-in-2">小红书笔记批量制作工具</h1>
-            <p class="page-subtitle fade-in fade-in-3">3 张截图 → 3 张封面 + 3 份文案 · Gemini 2.5 Flash · 开源</p>
+            <h1 class="page-title fade-in fade-in-2">小红书封面卡片生成工具</h1>
+            <p class="page-subtitle fade-in fade-in-3">3 张截图 → 3 篇文案 + 5 种杂志风封面卡片 · 双邮箱 Gemini 轮换 · 开源</p>
         </div>
     </section>
     
@@ -44,57 +44,32 @@
     <section class="content">
         <div class="container">
             <div class="section">
-                <div class="card" style="max-width: 900px; margin: 0 auto;">
-                    <h3>📝 项目介绍</h3>
-                    <p>一个务实的小红书内容批量生成工具。上传 3 张产品截图 + 产品标题，自动输出 3 张封面图 + 3 份完整文案（标题、正文、10个标签）。</p>
-                    
-                    <br>
-                    <h3>✨ 核心功能</h3>
-                    <p>• <strong>智能文案生成</strong>：使用 Gemini 2.5 Flash，看懂产品截图并写出接地气的种草文案</p>
-                    <p>• <strong>自动封面设计</strong>：多 provider 自动回退，确保高质量图片生成</p>
-                    <p>• <strong>批量处理</strong>：一次运行生成多篇笔记，提高效率</p>
-                    <p>• <strong>Web界面</strong>：Streamlit 提供友好的可视化操作界面</p>
-                    
-                    <br>
-                    <h3>🚀 工作原理</h3>
-                    <p><strong>输入：</strong>3张产品截图 + 产品标题</p>
-                    <p><strong>处理：</strong></p>
-                    <p>　• [Gemini 2.5 Flash] → 分析截图，生成3篇不同角度的文案</p>
-                    <p>　• [图像服务链] → 根据文案标题，生成3张封面图</p>
-                    <p><strong>输出：</strong>3张可下载封面图 + 3份可复制文案</p>
-                    
-                    <br>
-                    <h3>🎨 封面图方案</h3>
-                    <p>• <strong>Gemini 2.5 Flash Image</strong> - 高质量（需付费）</p>
-                    <p>• <strong>OpenAI gpt-image-1</strong> - 高质量（需付费）</p>
-                    <p>• <strong>SiliconFlow FLUX.1-dev</strong> - 推荐免费方案（新账号送额度）</p>
-                    <p>• <strong>Pollinations</strong> - 完全免费</p>
-                    
-                    <br>
-                    <h3>📦 快速开始</h3>
-                    <p>1. 克隆项目到本地</p>
-                    <p>2. 安装依赖：<code>pip install -r requirements.txt</code></p>
-                    <p>3. 配置 Gemini API Key</p>
-                    <p>4. 运行：<code>python main.py --title "产品名称"</code></p>
-                    <p>5. 或启动Web界面：<code>streamlit run web_app.py</code></p>
-                    
-                    <br>
-                    <h3>📁 输出结构</h3>
-                    <p>每次运行会在 <code>output/</code> 下创建带时间戳的子目录，包含：</p>
-                    <p>• 3篇文案文件（note_1.txt, note_2.txt, note_3.txt）</p>
-                    <p>• 3张封面图（cover_1.png, cover_2.png, cover_3.png）</p>
-                    <p>• JSON汇总数据</p>
-                    
-                    <br>
-                    <h3>🔗 获取方式</h3>
-                    <p>GitHub仓库：<a href="https://github.com/pinacc640/first-one" class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">查看源码</a></p>
-                    <p style="margin-top: 1rem;">详细文档请查看项目 README.md</p>
+                <div class="card" style="max-width: 820px; margin: 0 auto;">
+                    <h3>项目介绍</h3>
+                    <p>上传 3 张以上产品截图 + 产品标题，自动生成 3 篇完整文案（标题、正文、标签）+ 5 种瑞士国际主义风格的封面卡片（杂志感）。</p>
+                    <p style="margin-top: 0.75rem;">所有 AI 调用都用 <strong>Gemini 2.5 Flash</strong>，封面图通过 Playwright 渲染 HTML 模板生成，不依赖任何付费图像 API。</p>
+
+                    <h3 style="margin-top: 2rem;">核心特点</h3>
+                    <p style="margin-top: 0.75rem;"><strong>· 双邮箱 API 轮换</strong> — 用两个 Google 账号申请的 Gemini key 自动切换，免费额度翻倍，避免单账号限速</p>
+                    <p style="margin-top: 0.5rem;"><strong>· 5 种杂志排版</strong> — Swiss Grid / Full-bleed Hero / Serif Center / Dark Cinematic / Product Grid，自动轮换避免审美疲劳</p>
+                    <p style="margin-top: 0.5rem;"><strong>· 文案接地气</strong> — 提示词调过，避免"绝绝子"式油腻表达，像朋友推荐</p>
+                    <p style="margin-top: 0.5rem;"><strong>· Web + 命令行</strong> — Streamlit 可视化界面 + CLI 都可用</p>
+                    <p style="margin-top: 0.5rem;"><strong>· 完全开源</strong> — MIT 协议，本地运行，数据不出本机</p>
+
+                    <h3 style="margin-top: 2rem;">技术栈</h3>
+                    <p style="margin-top: 0.75rem;"><strong>Python</strong> · <strong>Gemini 2.5 Flash</strong> · <strong>Streamlit</strong> · <strong>Playwright</strong> · <strong>Google Fonts CDN</strong></p>
+
+                    <h3 style="margin-top: 2rem;">工作流程</h3>
+                    <p style="margin-top: 0.75rem;">输入产品标题 + 截图 → Gemini 多模态读图生成 3 篇文案 → Playwright 渲染 5 种排版的 HTML 模板（截图叠加 IKB 蓝滤镜 + 灰度处理）→ 输出图片 + 文案到带时间戳的目录</p>
+
+                    <h3 style="margin-top: 2rem;">输出</h3>
+                    <p style="margin-top: 0.75rem;">3 篇文案 (note_1/2/3.txt) + 5 张封面 (cover_A/B/C/D/E.png) + summary.json，全部在 <code>output/时间戳_产品名/</code> 下。</p>
+
+                    <div style="margin-top: 2.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="https://github.com/pinacc640/first-one" target="_blank" rel="noopener" class="btn btn-primary">查看源码</a>
+                        <a href="posts/post-3.html" class="btn btn-secondary">完整教程 →</a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- 广告位 -->
-            <div class="ad-space">
-                <p>📢 广告位</p>
             </div>
         </div>
     </section>
