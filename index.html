@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pinacc640 — 独立开发者 / AI 工具创作者</title>
+    <title data-i18n="home.title">pinacc640 — 独立开发者 / AI 工具创作者</title>
     <meta name="description" content="独立开发者，做 AI 工具、写笔记、研究 Web3 量化。把 AI 能力打包成普通人能用的产品。">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="video-background.css">
@@ -22,31 +22,34 @@
         <div class="container">
             <div class="logo">pinacc640</div>
             <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="blog.html">博客</a></li>
-                <li><a href="project.html">项目</a></li>
-                <li><a href="resources.html">资源分享</a></li>
-                <li><a href="contact.html">联系我</a></li>
+                <li><a href="index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">联系我</a></li>
             </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh" data-i18n="lang_switcher.zh">中</button>
+                <button type="button" data-lang="en" data-i18n="lang_switcher.en">EN</button>
+                <button type="button" data-lang="de" data-i18n="lang_switcher.de">DE</button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <span class="hero-eyebrow fade-in fade-in-1">Independent Maker · 2026</span>
+            <span class="hero-eyebrow fade-in fade-in-1" data-i18n="home.hero_eyebrow">Independent Maker · 2026</span>
             <h1 class="fade-in fade-in-2">
-                构建有用的<br>
-                <span class="highlight">AI 与 Web3 工具</span>
+                <span data-i18n="home.hero_title_1">构建有用的</span><br>
+                <span class="highlight" data-i18n="home.hero_title_2">AI 与 Web3 工具</span>
             </h1>
-            <p class="subtitle fade-in fade-in-3">
-                独立开发者。做工具、写笔记、记录成长。<br>
-                现在专注于把 AI 能力打包成普通人能用的产品。
-            </p>
+            <p class="subtitle fade-in fade-in-3" data-i18n="home.hero_subtitle">独立开发者。做工具、写笔记、记录成长。
+现在专注于把 AI 能力打包成普通人能用的产品。</p>
             <div class="hero-actions fade-in fade-in-4">
-                <a href="project.html" class="btn btn-primary">查看代表项目</a>
-                <a href="blog.html" class="btn btn-secondary">读博客</a>
+                <a href="project.html" class="btn btn-primary" data-i18n="home.btn_view_project">查看代表项目</a>
+                <a href="blog.html" class="btn btn-secondary" data-i18n="home.btn_read_blog">读博客</a>
             </div>
         </div>
     </section>
@@ -57,39 +60,39 @@
 
             <!-- 我在做什么 -->
             <div class="section">
-                <h2>我在做什么</h2>
+                <h2 data-i18n="home.section_doing">我在做什么</h2>
                 <div class="cards">
                     <div class="card">
-                        <h3>AI 工具开发</h3>
-                        <p>用 Gemini、GPT 等多模态模型构建小型实用工具。最近作品：小红书封面卡片生成工具。</p>
+                        <h3 data-i18n="home.card_ai_title">AI 工具开发</h3>
+                        <p data-i18n="home.card_ai_desc">用 Gemini、GPT 等多模态模型构建小型实用工具。最近作品：小红书封面卡片生成工具。</p>
                     </div>
                     <div class="card">
-                        <h3>Web3 量化研究</h3>
-                        <p>研究 Polymarket 等预测市场的量化交易策略，写工具自动化交易流程。</p>
+                        <h3 data-i18n="home.card_web3_title">Web3 量化研究</h3>
+                        <p data-i18n="home.card_web3_desc">研究 Polymarket 等预测市场的量化交易策略，写工具自动化交易流程。</p>
                     </div>
                     <div class="card">
-                        <h3>独立写作</h3>
-                        <p>把折腾过程整理成博客、教程，分享给想自己动手的人。</p>
+                        <h3 data-i18n="home.card_writing_title">独立写作</h3>
+                        <p data-i18n="home.card_writing_desc">把折腾过程整理成博客、教程，分享给想自己动手的人。</p>
                     </div>
                 </div>
             </div>
 
             <!-- 代表项目 -->
             <div class="section">
-                <h2>代表项目</h2>
+                <h2 data-i18n="home.section_projects">代表项目</h2>
                 <div class="cards" style="grid-template-columns: 1fr; max-width: 720px; margin: 2rem auto 0;">
                     <div class="card">
-                        <h3>小红书封面卡片生成工具</h3>
-                        <p>上传 3 张产品截图 + 标题，自动生成 3 篇文案 + 5 种瑞士国际主义风格的封面卡片（杂志感）。基于 Gemini 2.5 Flash + Playwright 渲染，双邮箱免费 API 轮换调用。开源、本地运行。</p>
+                        <h3 data-i18n="home.project_xhs_title">小红书封面卡片生成工具</h3>
+                        <p data-i18n="home.project_xhs_desc">上传 3 张产品截图 + 标题，自动生成 3 篇文案 + 5 种瑞士国际主义风格的封面卡片（杂志感）。基于 Gemini 2.5 Flash + Playwright 渲染，双邮箱免费 API 轮换调用。开源、本地运行。</p>
                         <div class="blog-tags" style="margin-top: 1.5rem;">
                             <span class="tag">Python</span>
                             <span class="tag">Gemini AI</span>
                             <span class="tag">Streamlit</span>
                             <span class="tag">Playwright</span>
-                            <span class="tag">开源</span>
+                            <span class="tag" data-i18n="blog.tag_project">开源</span>
                         </div>
                         <div style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                            <a href="project.html" class="btn btn-primary">查看详情</a>
+                            <a href="project.html" class="btn btn-primary" data-i18n="home.btn_details">查看详情</a>
                             <a href="https://github.com/pinacc640/first-one" target="_blank" rel="noopener" class="btn btn-secondary">GitHub →</a>
                         </div>
                     </div>
@@ -98,27 +101,27 @@
 
             <!-- 最新博客 -->
             <div class="section">
-                <h2>最新博客</h2>
+                <h2 data-i18n="home.section_latest_blog">最新博客</h2>
                 <div class="blog-list">
                     <article class="blog-item">
                         <div class="blog-date">2026.05.29</div>
-                        <a href="posts/post-3.html" class="blog-title">小红书封面卡片生成工具 · 完全教程</a>
-                        <div class="blog-excerpt">
+                        <a href="posts/post-3.html" class="blog-title" data-i18n="home.post3_title">小红书封面卡片生成工具 · 完全教程</a>
+                        <div class="blog-excerpt" data-i18n="home.post3_excerpt">
                             从克隆仓库到生成出 5 种排版的杂志封面 + 3 份文案的完整流程。包含双邮箱 Gemini API 轮换、Playwright 渲染、瑞士国际主义排版说明。
                         </div>
-                        <a href="posts/post-3.html" class="read-more">阅读全文 →</a>
+                        <a href="posts/post-3.html" class="read-more" data-i18n="home.btn_read_more">阅读全文 →</a>
                     </article>
                     <article class="blog-item">
                         <div class="blog-date">2026.05.27</div>
-                        <a href="posts/post-2.html" class="blog-title">如何搭建个人网站</a>
-                        <div class="blog-excerpt">
+                        <a href="posts/post-2.html" class="blog-title" data-i18n="home.post2_title">如何搭建个人网站</a>
+                        <div class="blog-excerpt" data-i18n="home.post2_excerpt">
                             从零开始搭建一个个人网站的完整流程。不需要编程知识，按步骤操作即可。
                         </div>
-                        <a href="posts/post-2.html" class="read-more">阅读全文 →</a>
+                        <a href="posts/post-2.html" class="read-more" data-i18n="home.btn_read_more">阅读全文 →</a>
                     </article>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="blog.html" class="btn btn-secondary">所有博客 →</a>
+                    <a href="blog.html" class="btn btn-secondary" data-i18n="home.btn_view_all_blog">所有博客 →</a>
                 </div>
             </div>
 
@@ -128,8 +131,10 @@
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="contact.html">公众号「棱镜PLSM」</a></p>
+            <p><span data-i18n="footer.tagline">© 2026 pinacc640</span> · <a href="https://github.com/pinacc640" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a> · <a href="contact.html" data-i18n="footer.wechat">公众号「棱镜PLSM」</a></p>
         </div>
     </footer>
+
+    <script src="i18n.js" defer></script>
 </body>
 </html>

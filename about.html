@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我 - 我的个人网站</title>
+    <title data-i18n="about.title">关于我 — pinacc640</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="video-background.css">
 </head>
@@ -15,58 +15,60 @@
         </video>
     </div>
     <div class="video-overlay"></div>
-    
+
     <!-- 导航栏 -->
     <nav>
         <div class="container">
-            <div class="logo">我的网站</div>
+            <div class="logo">pinacc640</div>
             <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="blog.html">博客</a></li>
-                <li><a href="project.html">项目</a></li>
-                <li><a href="resources.html">资源分享</a></li>
-                <li><a href="contact.html">联系我</a></li>
+                <li><a href="index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">联系我</a></li>
             </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh">中</button>
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="de">DE</button>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <div class="page-eyebrow fade-in fade-in-1">About</div>
-            <h1 class="page-title fade-in fade-in-2">关于我</h1>
-            <p class="page-subtitle fade-in fade-in-3">独立开发者 · 折腾 AI 工具与 Web3 量化</p>
+            <div class="page-eyebrow fade-in fade-in-1" data-i18n="about.eyebrow">About</div>
+            <h1 class="page-title fade-in fade-in-2" data-i18n="about.page_title">关于我</h1>
+            <p class="page-subtitle fade-in fade-in-3" data-i18n="about.page_subtitle">独立开发者 · 折腾 AI 工具与 Web3 量化</p>
         </div>
     </section>
-    
+
     <!-- 内容区域 -->
     <section class="content">
         <div class="container">
             <div class="section">
                 <div class="about-content">
                     <div class="card">
-                        <h3>你好，我是 pinacc640</h3>
-                        <p>独立开发者，目前专注两个方向：</p>
-                        <p style="margin-top: 1rem;"><strong>· AI 工具开发</strong> — 把 Gemini、GPT 这些多模态能力，打包成普通人能用的小工具。最近作品是<a href="project.html" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px solid rgba(168,85,247,0.3);">小红书封面卡片生成工具</a>。</p>
-                        <p style="margin-top: 0.75rem;"><strong>· Web3 量化研究</strong> — 研究 Polymarket 这类预测市场的量化策略，写工具自动化整个流程。</p>
-                        <p style="margin-top: 1.5rem;">这个网站记录我的折腾过程：博客是笔记和教程，项目页是代表作，资源页是我用过觉得好的工具。欢迎来 <a href="contact.html" style="color: var(--color-accent-2); text-decoration: none; border-bottom: 1px solid rgba(6,182,212,0.3);">联系我</a> 交流。</p>
+                        <h3 data-i18n="about.card_title">你好，我是 pinacc640</h3>
+                        <p data-i18n="about.intro">独立开发者，目前专注两个方向：</p>
+                        <p style="margin-top: 1rem;"><strong data-i18n="about.ai_focus">· AI 工具开发</strong><span data-i18n="about.ai_focus_desc"> — 把 Gemini、GPT 这些多模态能力，打包成普通人能用的小工具。最近作品是</span><a href="project.html" data-i18n="about.ai_focus_link" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px solid rgba(168,85,247,0.3);">小红书封面卡片生成工具</a><span data-i18n="about.ai_focus_end">。</span></p>
+                        <p style="margin-top: 0.75rem;"><strong data-i18n="about.web3_focus">· Web3 量化研究</strong><span data-i18n="about.web3_focus_desc"> — 研究 Polymarket 这类预测市场的量化策略，写工具自动化整个流程。</span></p>
+                        <p style="margin-top: 1.5rem;"><span data-i18n="about.outro">这个网站记录我的折腾过程：博客是笔记和教程，项目页是代表作，资源页是我用过觉得好的工具。欢迎来 </span><a href="contact.html" data-i18n="about.outro_contact_link" style="color: var(--color-accent-2); text-decoration: none; border-bottom: 1px solid rgba(6,182,212,0.3);">联系我</a><span data-i18n="about.outro_end"> 交流。</span></p>
                     </div>
                 </div>
             </div>
-            
-            <!-- 广告位 -->
-            <div class="ad-space">
-                <p>📢 广告位</p>
-            </div>
         </div>
     </section>
-    
+
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="contact.html">公众号「棱镜PLSM」</a></p>
+            <p><span data-i18n="footer.tagline">© 2026 pinacc640</span> · <a href="https://github.com/pinacc640" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a> · <a href="contact.html" data-i18n="footer.wechat">公众号「棱镜PLSM」</a></p>
         </div>
     </footer>
+
+    <script src="i18n.js" defer></script>
 </body>
 </html>

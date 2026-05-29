@@ -21,13 +21,18 @@
         <div class="container">
             <div class="logo">pinacc640</div>
             <ul class="nav-links">
-                <li><a href="../index.html">首页</a></li>
-                <li><a href="../about.html">关于我</a></li>
-                <li><a href="../blog.html">博客</a></li>
-                <li><a href="../project.html">项目</a></li>
-                <li><a href="../resources.html">资源分享</a></li>
-                <li><a href="../contact.html">联系我</a></li>
+                <li><a href="../index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="../about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="../blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="../project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="../resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="../contact.html" data-i18n="nav.contact">联系我</a></li>
             </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh">中</button>
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="de">DE</button>
+            </div>
         </div>
     </nav>
 
@@ -40,6 +45,7 @@
             </header>
 
             <div class="post-content">
+                <div class="post-cjk-notice" data-i18n="post.available_chinese_only">📖 本文仅有中文版本。</div>
                 <h2>项目背景</h2>
                 <p>做小红书内容创作，每篇笔记最折腾的两件事：</p>
                 <ul>
@@ -156,7 +162,7 @@ export GEMINI_API_KEY_2="第二个邮箱申请的 key"</code></pre>
             </div>
 
             <footer class="post-footer">
-                <a href="../blog.html" class="back-link">← 返回博客列表</a>
+                <a href="../blog.html" class="back-link" data-i18n="post.back_to_blog">← 返回博客列表</a>
             </footer>
         </div>
     </article>
@@ -164,8 +170,10 @@ export GEMINI_API_KEY_2="第二个邮箱申请的 key"</code></pre>
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="../contact.html">公众号「棱镜PLSM」</a></p>
+            <p><span data-i18n="footer.tagline">© 2026 pinacc640</span> · <a href="https://github.com/pinacc640" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a> · <a href="../contact.html" data-i18n="footer.wechat">公众号「棱镜PLSM」</a></p>
         </div>
     </footer>
+
+    <script src="../i18n.js" defer></script>
 </body>
 </html>

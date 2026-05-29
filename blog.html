@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客 - 我的个人网站</title>
+    <title data-i18n="blog.title">博客 — pinacc640</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="video-background.css">
 </head>
@@ -15,92 +15,94 @@
         </video>
     </div>
     <div class="video-overlay"></div>
-    
+
     <!-- 导航栏 -->
     <nav>
         <div class="container">
-            <div class="logo">我的网站</div>
+            <div class="logo">pinacc640</div>
             <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="blog.html">博客</a></li>
-                <li><a href="project.html">项目</a></li>
-                <li><a href="resources.html">资源分享</a></li>
-                <li><a href="contact.html">联系我</a></li>
+                <li><a href="index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">联系我</a></li>
             </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh">中</button>
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="de">DE</button>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <div class="page-eyebrow fade-in fade-in-1">Blog</div>
-            <h1 class="page-title fade-in fade-in-2">博客文章</h1>
-            <p class="page-subtitle fade-in fade-in-3">我的笔记、教程与思考</p>
+            <div class="page-eyebrow fade-in fade-in-1" data-i18n="blog.eyebrow">Blog</div>
+            <h1 class="page-title fade-in fade-in-2" data-i18n="blog.page_title">博客文章</h1>
+            <p class="page-subtitle fade-in fade-in-3" data-i18n="blog.page_subtitle">我的笔记、教程与思考</p>
         </div>
     </section>
-    
+
     <!-- 内容区域 -->
     <section class="content">
         <div class="container">
             <div class="blog-list">
                 <!-- 文章3 -->
                 <article class="blog-item">
-                    <div class="blog-date">2026年5月29日</div>
-                    <a href="posts/post-3.html" class="blog-title">小红书封面卡片生成工具 - 完全教程</a>
-                    <div class="blog-excerpt">
+                    <div class="blog-date">2026.05.29</div>
+                    <a href="posts/post-3.html" class="blog-title" data-i18n="blog.post3_title">小红书封面卡片生成工具 - 完全教程</a>
+                    <div class="blog-excerpt" data-i18n="blog.post3_excerpt">
                         分享一个我自己在用的小红书内容创作工具：输入 3 张产品截图 + 标题，自动生成 3 张封面图和 3 份完整文案。基于 Gemini 2.5 Flash 多模态 AI，支持多种封面图生成方案，新手也能用...
                     </div>
-                    <a href="posts/post-3.html" class="read-more">阅读全文 →</a>
+                    <a href="posts/post-3.html" class="read-more" data-i18n="blog.btn_read_more">阅读全文 →</a>
                     <div class="blog-tags">
-                        <span class="tag">项目</span>
-                        <span class="tag">教程</span>
-                        <span class="tag">小红书</span>
-                        <span class="tag">AI</span>
+                        <span class="tag" data-i18n="blog.tag_project">项目</span>
+                        <span class="tag" data-i18n="blog.tag_tutorial">教程</span>
+                        <span class="tag" data-i18n="blog.tag_xhs">小红书</span>
+                        <span class="tag" data-i18n="blog.tag_ai">AI</span>
                     </div>
                 </article>
-                
+
                 <!-- 文章1 -->
                 <article class="blog-item">
-                    <div class="blog-date">2026年5月28日</div>
-                    <a href="posts/post-1.html" class="blog-title">欢迎来到我的博客</a>
-                    <div class="blog-excerpt">
+                    <div class="blog-date">2026.05.28</div>
+                    <a href="posts/post-1.html" class="blog-title" data-i18n="blog.post1_title">欢迎来到我的博客</a>
+                    <div class="blog-excerpt" data-i18n="blog.post1_excerpt">
                         这是我的第一篇博客文章。在这里，我将分享我的学习心得、项目经验和生活感悟。希望这些内容对你有所帮助...
                     </div>
-                    <a href="posts/post-1.html" class="read-more">阅读全文 →</a>
+                    <a href="posts/post-1.html" class="read-more" data-i18n="blog.btn_read_more">阅读全文 →</a>
                     <div class="blog-tags">
-                        <span class="tag">随笔</span>
-                        <span class="tag">开始</span>
+                        <span class="tag" data-i18n="blog.tag_essay">随笔</span>
+                        <span class="tag" data-i18n="blog.tag_start">开始</span>
                     </div>
                 </article>
-                
+
                 <!-- 文章2 -->
                 <article class="blog-item">
-                    <div class="blog-date">2026年5月27日</div>
-                    <a href="posts/post-2.html" class="blog-title">如何搭建个人网站</a>
-                    <div class="blog-excerpt">
+                    <div class="blog-date">2026.05.27</div>
+                    <a href="posts/post-2.html" class="blog-title" data-i18n="blog.post2_title">如何搭建个人网站</a>
+                    <div class="blog-excerpt" data-i18n="blog.post2_excerpt">
                         今天我来分享一下如何从零开始搭建一个个人网站。整个过程非常简单，不需要编程知识，只需要按照步骤操作即可...
                     </div>
-                    <a href="posts/post-2.html" class="read-more">阅读全文 →</a>
+                    <a href="posts/post-2.html" class="read-more" data-i18n="blog.btn_read_more">阅读全文 →</a>
                     <div class="blog-tags">
-                        <span class="tag">教程</span>
-                        <span class="tag">网站</span>
+                        <span class="tag" data-i18n="blog.tag_tutorial">教程</span>
+                        <span class="tag" data-i18n="blog.tag_website">网站</span>
                     </div>
                 </article>
-            </div>
-            
-            <!-- 广告位 -->
-            <div class="ad-space">
-                <p>📢 广告位</p>
             </div>
         </div>
     </section>
-    
+
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="contact.html">公众号「棱镜PLSM」</a></p>
+            <p><span data-i18n="footer.tagline">© 2026 pinacc640</span> · <a href="https://github.com/pinacc640" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a> · <a href="contact.html" data-i18n="footer.wechat">公众号「棱镜PLSM」</a></p>
         </div>
     </footer>
+
+    <script src="i18n.js" defer></script>
 </body>
 </html>

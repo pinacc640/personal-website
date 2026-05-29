@@ -121,6 +121,57 @@ nav .container {
 .nav-links a:hover { color: var(--color-text); }
 .nav-links a:hover::after { width: 100%; }
 
+/* ---------- Language switcher ---------- */
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    margin-left: var(--space-6);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.lang-switcher button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+    line-height: 1;
+}
+.lang-switcher button:hover {
+    color: var(--color-text);
+}
+.lang-switcher button.is-active {
+    background: var(--gradient-accent);
+    color: white;
+}
+
+/* 文章中文专属提示（非中文模式才显示） */
+.post-cjk-notice {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: var(--color-text-muted);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    margin: 0 0 var(--space-8);
+    font-size: 0.875rem;
+    text-align: center;
+}
+html[lang="zh-CN"] .post-cjk-notice {
+    display: none;
+}
+
 /* ---------- Hero (homepage) ---------- */
 .hero {
     padding: var(--space-32) 0 var(--space-24);
@@ -566,6 +617,7 @@ footer a:hover {
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
+    .lang-switcher { margin-left: 0; }
     .container { padding: 0 var(--space-4); }
     .hero { padding: var(--space-20) 0 var(--space-16); }
     .page-hero { padding: var(--space-12) 0 var(--space-8); }

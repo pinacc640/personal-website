@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>资源分享 - 我的个人网站</title>
+    <title data-i18n="resources.title">资源分享 — pinacc640</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="video-background.css">
 </head>
@@ -15,71 +15,73 @@
         </video>
     </div>
     <div class="video-overlay"></div>
-    
+
     <!-- 导航栏 -->
     <nav>
         <div class="container">
-            <div class="logo">我的网站</div>
+            <div class="logo">pinacc640</div>
             <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="blog.html">博客</a></li>
-                <li><a href="project.html">项目</a></li>
-                <li><a href="resources.html">资源分享</a></li>
-                <li><a href="contact.html">联系我</a></li>
+                <li><a href="index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">联系我</a></li>
             </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh">中</button>
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="de">DE</button>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <div class="page-eyebrow fade-in fade-in-1">Resources</div>
-            <h1 class="page-title fade-in fade-in-2">资源分享</h1>
-            <p class="page-subtitle fade-in fade-in-3">我整理的好用工具与素材</p>
+            <div class="page-eyebrow fade-in fade-in-1" data-i18n="resources.eyebrow">Resources</div>
+            <h1 class="page-title fade-in fade-in-2" data-i18n="resources.page_title">资源分享</h1>
+            <p class="page-subtitle fade-in fade-in-3" data-i18n="resources.page_subtitle">我整理的好用工具与素材</p>
         </div>
     </section>
-    
+
     <!-- 内容区域 -->
     <section class="content">
         <div class="container">
             <div class="section">
                 <div class="cards">
                     <div class="card">
-                        <h3>📄 资源标题1</h3>
-                        <p>资源描述...</p>
+                        <h3 data-i18n="resources.card1_title">资源标题1</h3>
+                        <p data-i18n="resources.card1_desc">资源描述...</p>
                         <br>
-                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">下载</a>
+                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="resources.btn_download">下载</a>
                     </div>
-                    
+
                     <div class="card">
-                        <h3>📄 资源标题2</h3>
-                        <p>资源描述...</p>
+                        <h3 data-i18n="resources.card2_title">资源标题2</h3>
+                        <p data-i18n="resources.card2_desc">资源描述...</p>
                         <br>
-                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">下载</a>
+                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="resources.btn_download">下载</a>
                     </div>
-                    
+
                     <div class="card">
-                        <h3>📄 资源标题3</h3>
-                        <p>资源描述...</p>
+                        <h3 data-i18n="resources.card3_title">资源标题3</h3>
+                        <p data-i18n="resources.card3_desc">资源描述...</p>
                         <br>
-                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">下载</a>
+                        <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;" data-i18n="resources.btn_download">下载</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- 广告位 -->
-            <div class="ad-space">
-                <p>📢 广告位</p>
-            </div>
         </div>
     </section>
-    
+
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="contact.html">公众号「棱镜PLSM」</a></p>
+            <p><span data-i18n="footer.tagline">© 2026 pinacc640</span> · <a href="https://github.com/pinacc640" target="_blank" rel="noopener" data-i18n="footer.github">GitHub</a> · <a href="contact.html" data-i18n="footer.wechat">公众号「棱镜PLSM」</a></p>
         </div>
     </footer>
+
+    <script src="i18n.js" defer></script>
 </body>
 </html>
