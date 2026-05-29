@@ -17,6 +17,9 @@
     </div>
     <div class="video-overlay"></div>
 
+    <!-- 粒子网络 canvas（桌面） -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- 导航 -->
     <nav>
         <div class="container">
@@ -81,6 +84,28 @@
                 </div>
             </div>
 
+            <!-- 数字统计 -->
+            <div class="section">
+                <div class="stats-grid reveal">
+                    <div class="stat-cell">
+                        <div class="stat-num"><span data-counter="3" data-counter-suffix="">3</span></div>
+                        <div class="stat-label">Open Source Projects</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-num"><span data-counter="100" data-counter-suffix="+">100+</span></div>
+                        <div class="stat-label">Git Commits</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-num"><span data-counter="5" data-counter-suffix="¥/月">5¥/月</span></div>
+                        <div class="stat-label">AI Pipeline Cost</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-num"><span data-counter="3" data-counter-suffix="语">3语</span></div>
+                        <div class="stat-label">Languages Supported</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 代表项目 -->
             <div class="section">
                 <h2 data-i18n="home.section_projects">代表项目</h2>
@@ -140,5 +165,6 @@
     </footer>
 
     <script src="i18n.js" defer></script>
+    <script src="effects.js" defer></script>
 </body>
 </html>

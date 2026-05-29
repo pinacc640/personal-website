@@ -614,6 +614,133 @@ footer a:hover {
 .fade-in-3 { animation-delay: 0.2s; }
 .fade-in-4 { animation-delay: 0.3s; }
 
+/* ---------- Premium interactions (effects.js) ---------- */
+
+/* 粒子网络 canvas — 在视频背景之上 / 内容之下 */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.85;
+}
+
+/* Scroll Reveal — 默认隐藏，进入视口加 .is-visible 触发 */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 鼠标光晕 cursor-glow（桌面） */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(168, 85, 247, 0.08) 30%, transparent 70%);
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+    mix-blend-mode: screen;
+    will-change: transform;
+}
+.cursor-glow--hover {
+    background:
+        radial-gradient(circle, rgba(192, 132, 252, 0.32) 0%, rgba(6, 182, 212, 0.15) 35%, transparent 70%);
+}
+
+/* 3D 倾斜过渡（card 已经有 transition, 加上 transform 平滑） */
+.card,
+.blog-item {
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* 可变字重呼吸（Hero highlight 词） */
+@keyframes weight-breath {
+    0%, 100% { font-variation-settings: 'wght' 700; }
+    50%      { font-variation-settings: 'wght' 350; }
+}
+.hero h1 .highlight {
+    /* Inter 是 variable font，wght 在 100–900 之间 */
+    animation: weight-breath 8s ease-in-out infinite;
+    font-variation-settings: 'wght' 700;
+}
+
+/* 数字滚动统计 — 大字号 mono 数字 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+    padding: var(--space-10) var(--space-6);
+    background: var(--color-bg-elevated);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+.stat-cell {
+    text-align: center;
+}
+.stat-num {
+    font-family: var(--font-mono);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+.stat-label {
+    margin-top: var(--space-3);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+/* 隐藏粒子背景 在 prefers-reduced-motion 下 */
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero h1 .highlight { animation: none; }
+    .cursor-glow { display: none; }
+    #particle-canvas { display: none; }
+}
+
+/* 移动端不显示粒子 + 不显示光晕 */
+@media (max-width: 768px) {
+    #particle-canvas { display: none; }
+    .cursor-glow { display: none; }
+    /* 移动端卡片不要 3D 倾斜 */
+    .card, .blog-item { transform: none !important; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
