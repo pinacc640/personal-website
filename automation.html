@@ -59,7 +59,7 @@
         <div class="container">
             <div class="page-eyebrow fade-in fade-in-1" data-i18n="automation.eyebrow">Behind the Scenes</div>
             <h1 class="page-title fade-in fade-in-2" data-i18n="automation.page_title">棱镜PLSM 的 AI 内容流水线</h1>
-            <p class="page-subtitle fade-in fade-in-3" data-i18n="automation.page_subtitle">100% AI 写作 · 全自动选题与排版 · 人类只做最后一道手术</p>
+            <p class="page-subtitle fade-in fade-in-3" data-i18n="automation.page_subtitle">AI 主笔 · 人类把关 · 半自动流水线</p>
         </div>
     </section>
 
@@ -71,9 +71,9 @@
                 <!-- 介绍 -->
                 <div class="card">
                     <h3 data-i18n="automation.intro_title">这个公众号是 AI 在运营</h3>
-                    <p style="margin-top: 1rem;" data-i18n="automation.intro_p1">「棱镜PLSM」公众号的每篇文章，从选题、写作、排版到上传草稿，都由一个叫 openclaw 小龙虾 的 AI agent 编排系统全自动完成。</p>
-                    <p style="margin-top: 0.75rem;" data-i18n="automation.intro_p2">我作为人类只负责两件事：① 决定要不要发，② 在最终稿上做轻微的口吻调整。剩下 95% 的工作，全程由 AI 跑流水线。</p>
-                    <div class="disclaimer" data-i18n="automation.intro_disclaimer">📢 全网透明披露：你看到的内容是 AI 生成的，不是人写的。</div>
+                    <p style="margin-top: 1rem;" data-i18n="automation.intro_p1">「棱镜PLSM」公众号的每篇文章，是 openclaw 小龙虾 这套 AI agent 系统的产出。我手动挑选题，AI 负责调研、写作、出图，脚本负责排版和上传。</p>
+                    <p style="margin-top: 0.75rem;" data-i18n="automation.intro_p2">我作为人类的工作：从微博热搜挑选题、决定要不要发、在最终稿上做轻微的口吻调整。剩下的繁琐工序——背景调研、写作、配图、HTML 排版、上传草稿——全部交给流水线。</p>
+                    <div class="disclaimer" data-i18n="automation.intro_disclaimer">📢 透明披露：文章正文是 AI 写的，配图由 GPT 生成，我只负责选题和最后过审。</div>
                 </div>
 
                 <!-- 技术栈 -->
@@ -84,23 +84,23 @@
                     <div class="stack-grid">
                         <div class="card">
                             <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_openclaw_title">openclaw 小龙虾</h3>
-                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_openclaw_desc">本地运行的 AI agent 编排工具，CLI 形态，自带 workspace、agent、gateway、auth、hooks 全套基础设施。整个流水线的大脑。</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_openclaw_desc">本地运行的 AI agent 编排工具，CLI 形态，自带 workspace、agent、gateway、auth、hooks。整个流水线的大脑。</p>
                         </div>
                         <div class="card">
-                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_deepseek_title">DeepSeek 双模型</h3>
-                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_deepseek_desc">deepseek-chat（高速写作）+ deepseek-reasoner（深度推理）。200k 上下文窗口，免费额度足够每天跑几十篇。</p>
+                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_deepseek_title">DeepSeek-Chat</h3>
+                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_deepseek_desc">openclaw 默认接入 DeepSeek 的最便宜模型 deepseek-chat（约 0.2 元 / 百万 input token，缓存命中后更便宜）。负责文章主体写作。</p>
                         </div>
                         <div class="card">
-                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_hotspot_title">热点抓取</h3>
-                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_hotspot_desc">每天定时拉百度热搜、微博热榜、知乎热榜，按权重打分排序，AI 自动筛选最适合公众号选题的 3-5 条。</p>
+                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_hotspot_title">Brave Search</h3>
+                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_hotspot_desc">openclaw 推荐配套的搜索后端。写作 agent 在动笔前调 Brave 抓相关背景资料、事实数据、近期报道，避免幻觉。</p>
                         </div>
                         <div class="card">
                             <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_writer_title">写作 Agent</h3>
                             <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_writer_desc">针对公众号阅读习惯调过的提示词：碎碎念排版、每段不超 3 句话、强情感共鸣、可读性优先。出稿即可发。</p>
                         </div>
                         <div class="card">
-                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_publisher_title">微信草稿 API</h3>
-                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_publisher_desc">Python 脚本调用微信公众平台官方 API，自动上传封面图获取 media_id、HTML 格式化文章、推送到草稿箱。</p>
+                            <h3 style="font-size: 1.0625rem;" data-i18n="automation.stack_card_publisher_title">GPT 生图 + 微信草稿 API</h3>
+                            <p style="margin-top: 0.5rem; font-size: 0.9375rem;" data-i18n="automation.stack_card_publisher_desc">配图调 GPT 出 900×500 公众号封面；Python 脚本调微信公众平台官方 API：上传封面拿 media_id、HTML 格式化文章、推送草稿箱。</p>
                         </div>
                     </div>
                 </div>
@@ -108,28 +108,28 @@
                 <!-- 工作流程 -->
                 <div class="card">
                     <h3 data-i18n="automation.flow_title">工作流程</h3>
-                    <p style="margin-top: 0.75rem; color: var(--color-text-muted);" data-i18n="automation.flow_lead">从一条热搜到公众号草稿，全程不到 90 秒。</p>
+                    <p style="margin-top: 0.75rem; color: var(--color-text-muted);" data-i18n="automation.flow_lead">从「我看到一条热搜」到「公众号里多一条草稿」，AI 部分全自动跑完，前后不到 90 秒。</p>
 
                     <div class="pipeline-grid">
                         <div class="pipeline-step">
-                            <h4 data-i18n="automation.flow_step1_title">1 · 抓热点</h4>
-                            <p data-i18n="automation.flow_step1_desc">openclaw 触发热点抓取 agent，扫描多平台热榜，输出当日候选选题列表（带流量预估和情感倾向打分）。</p>
+                            <h4 data-i18n="automation.flow_step1_title">1 · 手动选题</h4>
+                            <p data-i18n="automation.flow_step1_desc">每天上午我打开微博热搜，挑一条契合「时事观察 / 人文思考」定位的话题，复制给 openclaw。</p>
                         </div>
                         <div class="pipeline-step">
-                            <h4 data-i18n="automation.flow_step2_title">2 · 选题</h4>
-                            <p data-i18n="automation.flow_step2_desc">AI 按账号定位（时事观察/人文思考）筛选最契合的 1 条，生成创作 brief。</p>
+                            <h4 data-i18n="automation.flow_step2_title">2 · AI 调研</h4>
+                            <p data-i18n="automation.flow_step2_desc">openclaw 调 Brave Search 抓相关背景资料、事实数据、近期报道，整理成上下文喂给写作 agent。</p>
                         </div>
                         <div class="pipeline-step">
                             <h4 data-i18n="automation.flow_step3_title">3 · 写作</h4>
-                            <p data-i18n="automation.flow_step3_desc">DeepSeek-Chat 按 brief + 风格指南输出 800 字左右的成文，自动加碎碎念排版（每段一两句、大量空行）。</p>
+                            <p data-i18n="automation.flow_step3_desc">DeepSeek-Chat 按 brief + 风格指南写 800 字左右的成文，自动加碎碎念排版（每段一两句、大量空行）。</p>
                         </div>
                         <div class="pipeline-step">
-                            <h4 data-i18n="automation.flow_step4_title">4 · 封面</h4>
-                            <p data-i18n="automation.flow_step4_desc">封面 prompt 喂给图像生成服务，输出 900×500 的微信公众号标准封面。</p>
+                            <h4 data-i18n="automation.flow_step4_title">4 · GPT 生图</h4>
+                            <p data-i18n="automation.flow_step4_desc">调 GPT 生图（DALL-E / gpt-image），按文章主题出 900×500 微信公众号标准封面。</p>
                         </div>
                         <div class="pipeline-step">
-                            <h4 data-i18n="automation.flow_step5_title">5 · 上传</h4>
-                            <p data-i18n="automation.flow_step5_desc">脚本调微信草稿 API：上传封面 → 获取 media_id → 推送 HTML 文章 → 进入草稿箱。</p>
+                            <h4 data-i18n="automation.flow_step5_title">5 · 自动上传</h4>
+                            <p data-i18n="automation.flow_step5_desc">脚本调微信草稿 API：上传封面 → 拿 media_id → 推送 HTML 文章 → 落到草稿箱。</p>
                         </div>
                         <div class="pipeline-step">
                             <h4 data-i18n="automation.flow_step6_title">6 · 人类审核</h4>
@@ -148,20 +148,22 @@
       <span class="key">"deepseek"</span>: {
         <span class="key">"baseUrl"</span>: <span class="str">"https://api.deepseek.com/v1"</span>,
         <span class="key">"models"</span>: [
-          { <span class="key">"id"</span>: <span class="str">"deepseek-chat"</span>,     <span class="key">"contextWindow"</span>: <span class="num">200000</span> },
-          { <span class="key">"id"</span>: <span class="str">"deepseek-reasoner"</span>, <span class="key">"contextWindow"</span>: <span class="num">200000</span> }
+          { <span class="key">"id"</span>: <span class="str">"deepseek-chat"</span>, <span class="key">"contextWindow"</span>: <span class="num">200000</span> }   <span class="cmt">// 最便宜的写作模型</span>
         ]
       }
     }
   },
+  <span class="key">"search"</span>: {
+    <span class="key">"provider"</span>: <span class="str">"brave"</span>,                          <span class="cmt">// openclaw 推荐</span>
+    <span class="key">"apiKey"</span>:   <span class="str">"${BRAVE_API_KEY}"</span>
+  },
   <span class="key">"agents"</span>: {
     <span class="key">"defaults"</span>: {
       <span class="key">"model"</span>: { <span class="key">"primary"</span>: <span class="str">"deepseek/deepseek-chat"</span> },
-      <span class="key">"workspace"</span>: <span class="str">"~/.openclaw/workspace"</span>,
-      <span class="key">"compaction"</span>: { <span class="key">"mode"</span>: <span class="str">"safeguard"</span> }
+      <span class="key">"workspace"</span>: <span class="str">"~/.openclaw/workspace"</span>
     }
   },
-  <span class="key">"gateway"</span>: { <span class="key">"port"</span>: <span class="num">18789</span>, <span class="key">"mode"</span>: <span class="str">"local"</span> },
+  <span class="key">"gateway"</span>: { <span class="key">"port"</span>: <span class="num">18789</span>, <span class="key">"mode"</span>: <span class="str">"local"</span> }
   <span class="cmt">// 真实 token / API key 已隐去</span>
 }</pre>
                 </div>
@@ -171,7 +173,7 @@
                     <h3 data-i18n="automation.why_title">为什么这么做</h3>
                     <p style="margin-top: 1rem;" data-i18n="automation.why_p1">传统公众号运营成本高、周期长。一个人撑不住每天更新；找团队又烧钱。</p>
                     <p style="margin-top: 0.75rem;" data-i18n="automation.why_p2">我把它当成一个工程问题：用 AI agent 编排把「选题 + 写作 + 排版 + 发布」做成可重复的流水线。人类只在最后做「质量阀门」。</p>
-                    <p style="margin-top: 0.75rem;" data-i18n="automation.why_p3">结果就是：一个人 + 一台电脑 + 不到 100 块钱的 API 月费，等同于以前 3-5 人小团队的产出。</p>
+                    <p style="margin-top: 0.75rem;" data-i18n="automation.why_p3">结果就是：一个人 + 一台电脑 + 每月不到 10 块钱的 API 费用，把繁琐的工序全部自动化掉，省下来的时间花在选题质量上。</p>
                 </div>
 
                 <!-- CTA -->
