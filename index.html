@@ -3,264 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #000;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        /* 视频背景 */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-        
-        /* 视频遮罩层 - 移除透明度 */
-        .video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* 导航栏 */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #667eea;
-        }
-        
-        /* 英雄区域 */
-        .hero {
-            text-align: center;
-            padding: 8rem 2rem;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 3rem;
-            border-radius: 20px;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s 0.3s backwards;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s 0.6s backwards;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        
-        /* 内容区域 */
-        .content {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 4rem 0;
-            position: relative;
-            z-index: 1;
-            color: white;
-        }
-        
-        .section h2 {
-            color: white;
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-        
-        .card p {
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        /* 广告位 */
-        .ad-space {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-            border-radius: 10px;
-        }
-        
-        .ad-space p {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        /* 页脚 */
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* 动画 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .video-background video {
-                display: none;
-            }
-        }
-    </style>
+    <title>pinacc640 — 独立开发者 / AI 工具创作者</title>
+    <meta name="description" content="独立开发者，做 AI 工具、写笔记、研究 Web3 量化。把 AI 能力打包成普通人能用的产品。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video-background.css">
 </head>
 <body>
     <!-- 视频背景 -->
     <div class="video-background">
         <video autoplay muted loop playsinline>
             <source src="videos/background.mp4" type="video/mp4">
-            您的浏览器不支持视频背景
         </video>
     </div>
-    
-    <!-- 视频遮罩层 -->
     <div class="video-overlay"></div>
-    
-    <!-- 导航栏 -->
+
+    <!-- 导航 -->
     <nav>
         <div class="container">
-            <div class="logo">我的网站</div>
+            <div class="logo">pinacc640</div>
             <ul class="nav-links">
                 <li><a href="index.html">首页</a></li>
                 <li><a href="about.html">关于我</a></li>
@@ -271,61 +31,103 @@
             </ul>
         </div>
     </nav>
-    
-    <!-- 英雄区域 -->
+
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>欢迎来到我的个人网站</h1>
-                <p>分享知识，记录成长，连接世界</p>
-                <a href="resources.html" class="cta-button">查看资源</a>
+            <span class="hero-eyebrow fade-in fade-in-1">Independent Maker · 2026</span>
+            <h1 class="fade-in fade-in-2">
+                构建有用的<br>
+                <span class="highlight">AI 与 Web3 工具</span>
+            </h1>
+            <p class="subtitle fade-in fade-in-3">
+                独立开发者。做工具、写笔记、记录成长。<br>
+                现在专注于把 AI 能力打包成普通人能用的产品。
+            </p>
+            <div class="hero-actions fade-in fade-in-4">
+                <a href="project.html" class="btn btn-primary">查看代表项目</a>
+                <a href="blog.html" class="btn btn-secondary">读博客</a>
             </div>
         </div>
     </section>
-    
-    <!-- 内容区域 -->
+
+    <!-- 内容 -->
     <section class="content">
         <div class="container">
-            <!-- 关于我简介 -->
+
+            <!-- 我在做什么 -->
             <div class="section">
-                <h2>关于我</h2>
+                <h2>我在做什么</h2>
                 <div class="cards">
                     <div class="card">
-                        <h3>🎯 我的兴趣</h3>
-                        <p>这里可以介绍你的兴趣爱好，比如Web3量化交易、Python编程等。</p>
+                        <h3>AI 工具开发</h3>
+                        <p>用 Gemini、GPT 等多模态模型构建小型实用工具。最近作品：小红书笔记批量制作工具。</p>
                     </div>
                     <div class="card">
-                        <h3>💡 我的项目</h3>
-                        <p>展示你的项目经历，比如Polymarket量化交易工具等。</p>
+                        <h3>Web3 量化研究</h3>
+                        <p>研究 Polymarket 等预测市场的量化交易策略，写工具自动化交易流程。</p>
                     </div>
                     <div class="card">
-                        <h3>📚 学习笔记</h3>
-                        <p>分享你的学习心得和知识积累。</p>
+                        <h3>独立写作</h3>
+                        <p>把折腾过程整理成博客、教程，分享给想自己动手的人。</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- 广告位1 -->
-            <div class="ad-space">
-                <p>📢 广告位 - 可接入Google AdSense</p>
-                <!-- 在这里插入广告代码 -->
-            </div>
-            
-            <!-- 最新动态 -->
+
+            <!-- 代表项目 -->
             <div class="section">
-                <h2>最新动态</h2>
-                <div class="card">
-                    <h3>🎉 网站上线啦！</h3>
-                    <p>欢迎来到我的个人网站。这里将分享我的学习笔记、项目经验和其他有趣的内容。</p>
+                <h2>代表项目</h2>
+                <div class="cards" style="grid-template-columns: 1fr; max-width: 720px; margin: 2rem auto 0;">
+                    <div class="card">
+                        <h3>小红书笔记批量制作工具</h3>
+                        <p>3 张产品截图 + 标题，自动生成 3 张封面图 + 3 份完整文案。基于 Gemini 2.5 Flash 多模态理解。开源、可本地运行。</p>
+                        <div class="blog-tags" style="margin-top: 1.5rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">Gemini AI</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">开源</span>
+                        </div>
+                        <div style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="project.html" class="btn btn-primary">查看详情</a>
+                            <a href="https://github.com/pinacc640/xiaohongshu-tool" target="_blank" rel="noopener" class="btn btn-secondary">GitHub →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- 最新博客 -->
+            <div class="section">
+                <h2>最新博客</h2>
+                <div class="blog-list">
+                    <article class="blog-item">
+                        <div class="blog-date">2026.05.29</div>
+                        <a href="posts/post-3.html" class="blog-title">小红书笔记批量制作工具 · 完全教程</a>
+                        <div class="blog-excerpt">
+                            从零安装到生成出 3 张封面 + 3 份文案的完整流程。包含 4 种图像服务对比、API 配置、输出结构说明。
+                        </div>
+                        <a href="posts/post-3.html" class="read-more">阅读全文 →</a>
+                    </article>
+                    <article class="blog-item">
+                        <div class="blog-date">2026.05.27</div>
+                        <a href="posts/post-2.html" class="blog-title">如何搭建个人网站</a>
+                        <div class="blog-excerpt">
+                            从零开始搭建一个个人网站的完整流程。不需要编程知识，按步骤操作即可。
+                        </div>
+                        <a href="posts/post-2.html" class="read-more">阅读全文 →</a>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="blog.html" class="btn btn-secondary">所有博客 →</a>
+                </div>
+            </div>
+
         </div>
     </section>
-    
+
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 我的个人网站. All rights reserved.</p>
+            <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a></p>
         </div>
     </footer>
 </body>
