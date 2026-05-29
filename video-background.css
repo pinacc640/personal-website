@@ -1,4 +1,5 @@
-/* 视频背景 — 玻璃质感优化版 */
+/* 视频背景 — 桌面用视频；移动端 / WeChat 浏览器用 CSS 动画渐变 fallback */
+
 .video-background {
     position: fixed;
     top: 0;
@@ -8,22 +9,97 @@
     z-index: -2;
     overflow: hidden;
     pointer-events: none;
+
+    /* fallback 渐变（视频不可用时显示，包括手机自动播放被拦截的情况） */
+    background:
+        linear-gradient(135deg,
+            #0a0613 0%,
+            #1a0a2e 25%,
+            #16213e 50%,
+            #0f3460 75%,
+            #0a0613 100%);
+    background-size: 400% 400%;
+    animation: bg-gradient-shift 30s ease infinite;
 }
 
+@keyframes bg-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+/* 流光：在 fallback 渐变之上叠加缓慢移动的紫青色光斑（Aurora 效果） */
+.video-background::before,
+.video-background::after {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.video-background::before {
+    background:
+        radial-gradient(circle at 20% 25%, rgba(168, 85, 247, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 80% 75%, rgba(6, 182, 212, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.18) 0%, transparent 50%);
+    animation: aurora-shift-1 28s ease-in-out infinite;
+    filter: blur(40px);
+}
+
+.video-background::after {
+    background:
+        radial-gradient(circle at 70% 20%, rgba(103, 232, 249, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 30% 80%, rgba(168, 85, 247, 0.32) 0%, transparent 45%);
+    animation: aurora-shift-2 36s ease-in-out infinite;
+    filter: blur(60px);
+}
+
+@keyframes aurora-shift-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(-6%, 8%) scale(1.05); }
+    66%      { transform: translate(8%, -4%) scale(0.95); }
+}
+
+@keyframes aurora-shift-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(5%, -7%) scale(1.08); }
+}
+
+/* 视频元素：放在 fallback 之上，能播则盖住 fallback；不能播就让 fallback 显示 */
 .video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
     filter: saturate(1.1);
+    z-index: 1;
 }
 
-/* 视频遮罩层：紫青色光晕 + 渐变压暗，让背景视频既可见又不抢戏 */
+/* 移动端：视频太重 + 自动播放经常被拦截，干脆不加载视频，让 CSS 动画 fallback 完全发挥 */
+@media (max-width: 768px) {
+    .video-background video {
+        display: none;
+    }
+    /* 手机端 aurora 调强一点，更有冲击力，弥补缺失视频感 */
+    .video-background::before {
+        background:
+            radial-gradient(circle at 20% 25%, rgba(168, 85, 247, 0.55) 0%, transparent 50%),
+            radial-gradient(circle at 80% 75%, rgba(6, 182, 212, 0.45) 0%, transparent 55%),
+            radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.25) 0%, transparent 55%);
+    }
+    .video-background::after {
+        background:
+            radial-gradient(circle at 70% 20%, rgba(103, 232, 249, 0.38) 0%, transparent 50%),
+            radial-gradient(circle at 30% 80%, rgba(168, 85, 247, 0.42) 0%, transparent 50%);
+    }
+}
+
+/* 视频遮罩层：紫青色光晕 + 渐变压暗，确保内容可读 */
 .video-overlay {
     position: fixed;
     top: 0;
@@ -31,8 +107,8 @@
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(168, 85, 247, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 50% at 80% 100%, rgba(6, 182, 212, 0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 80% 100%, rgba(6, 182, 212, 0.10) 0%, transparent 60%),
         linear-gradient(to bottom,
             rgba(8, 8, 12, 0.78) 0%,
             rgba(8, 8, 12, 0.62) 35%,
@@ -40,4 +116,26 @@
             rgba(8, 8, 12, 0.88) 100%);
     z-index: -1;
     pointer-events: none;
+}
+
+/* 移动端蒙版略浅，让 aurora 显得更明显 */
+@media (max-width: 768px) {
+    .video-overlay {
+        background:
+            radial-gradient(ellipse 90% 70% at 20% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 80% 60% at 80% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 60%),
+            linear-gradient(to bottom,
+                rgba(8, 8, 12, 0.70) 0%,
+                rgba(8, 8, 12, 0.55) 50%,
+                rgba(8, 8, 12, 0.85) 100%);
+    }
+}
+
+/* 用户开了"减少动效"偏好就不动 */
+@media (prefers-reduced-motion: reduce) {
+    .video-background,
+    .video-background::before,
+    .video-background::after {
+        animation: none !important;
+    }
 }
