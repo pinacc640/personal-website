@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小红书笔记批量制作工具 - 我的个人网站</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video-background.css">
+</head>
+<body>
+    <!-- 视频背景 -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">我的网站</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="blog.html">博客</a></li>
+                <li><a href="project.html">项目</a></li>
+                <li><a href="resources.html">资源分享</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 内容区域 -->
+    <section class="content" style="padding-top: 4rem;">
+        <div class="container">
+            <div class="section">
+                <h2>🎯 小红书笔记批量制作工具</h2>
+                <div class="card" style="max-width: 900px; margin: 2rem auto;">
+                    <h3>📝 项目介绍</h3>
+                    <p>一个务实的小红书内容批量生成工具。上传 3 张产品截图 + 产品标题，自动输出 3 张封面图 + 3 份完整文案（标题、正文、10个标签）。</p>
+                    
+                    <br>
+                    <h3>✨ 核心功能</h3>
+                    <p>• <strong>智能文案生成</strong>：使用 Gemini 2.5 Flash，看懂产品截图并写出接地气的种草文案</p>
+                    <p>• <strong>自动封面设计</strong>：多 provider 自动回退，确保高质量图片生成</p>
+                    <p>• <strong>批量处理</strong>：一次运行生成多篇笔记，提高效率</p>
+                    <p>• <strong>Web界面</strong>：Streamlit 提供友好的可视化操作界面</p>
+                    
+                    <br>
+                    <h3>🚀 工作原理</h3>
+                    <p><strong>输入：</strong>3张产品截图 + 产品标题</p>
+                    <p><strong>处理：</strong></p>
+                    <p>　• [Gemini 2.5 Flash] → 分析截图，生成3篇不同角度的文案</p>
+                    <p>　• [图像服务链] → 根据文案标题，生成3张封面图</p>
+                    <p><strong>输出：</strong>3张可下载封面图 + 3份可复制文案</p>
+                    
+                    <br>
+                    <h3>🎨 封面图方案</h3>
+                    <p>• <strong>Gemini 2.5 Flash Image</strong> - 高质量（需付费）</p>
+                    <p>• <strong>OpenAI gpt-image-1</strong> - 高质量（需付费）</p>
+                    <p>• <strong>SiliconFlow FLUX.1-dev</strong> - 推荐免费方案（新账号送额度）</p>
+                    <p>• <strong>Pollinations</strong> - 完全免费</p>
+                    
+                    <br>
+                    <h3>📦 快速开始</h3>
+                    <p>1. 克隆项目到本地</p>
+                    <p>2. 安装依赖：<code>pip install -r requirements.txt</code></p>
+                    <p>3. 配置 Gemini API Key</p>
+                    <p>4. 运行：<code>python main.py --title "产品名称"</code></p>
+                    <p>5. 或启动Web界面：<code>streamlit run web_app.py</code></p>
+                    
+                    <br>
+                    <h3>📁 输出结构</h3>
+                    <p>每次运行会在 <code>output/</code> 下创建带时间戳的子目录，包含：</p>
+                    <p>• 3篇文案文件（note_1.txt, note_2.txt, note_3.txt）</p>
+                    <p>• 3张封面图（cover_1.png, cover_2.png, cover_3.png）</p>
+                    <p>• JSON汇总数据</p>
+                    
+                    <br>
+                    <h3>🔗 获取方式</h3>
+                    <p>GitHub仓库：<a href="https://github.com/pinacc640/xiaohongshu-tool" class="cta-button" style="padding: 8px 16px; font-size: 0.9rem;">查看源码</a></p>
+                    <p style="margin-top: 1rem;">详细文档请查看项目 README.md</p>
+                </div>
+            </div>
+            
+            <!-- 广告位 -->
+            <div class="ad-space">
+                <p>📢 广告位</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 我的个人网站. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

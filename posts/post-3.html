@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小红书笔记批量制作工具 - 使用教程 - 我的个人网站</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../video-background.css">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 视频背景 -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="../videos/background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">我的网站</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于我</a></li>
+                <li><a href="../blog.html">博客</a></li>
+                <li><a href="../project.html">项目</a></li>
+                <li><a href="../resources.html">资源分享</a></li>
+                <li><a href="../contact.html">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 文章内容 -->
+    <article class="content" style="padding-top: 4rem;">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-date">2026年5月29日</div>
+                <h1 class="post-title">小红书笔记批量制作工具 - 完全教程</h1>
+            </header>
+            
+            <div class="post-content">
+                <h2>项目背景</h2>
+                <p>做小红书内容创作，最耗时的就是写文案和做封面图。每次都要：</p>
+                <ul>
+                    <li>拍产品照片</li>
+                    <li>想吸引人的标题</li>
+                    <li>写种草文案</li>
+                    <li>设计封面图</li>
+                    <li>想标签</li>
+                </ul>
+                <p>这个工具帮你自动化整个流程，节省大量时间！</p>
+                
+                <h2>核心功能</h2>
+                <p><strong>输入：</strong>3张产品截图 + 产品标题</p>
+                <p><strong>输出：</strong>3张封面图 + 3份完整文案</p>
+                
+                <h2>技术栈</h2>
+                <ul>
+                    <li><strong>Python</strong> - 主要编程语言</li>
+                    <li><strong>Gemini 2.5 Flash</strong> - 多模态AI，理解图片生成文案</li>
+                    <li><strong>Streamlit</strong> - Web界面框架</li>
+                    <li><strong>Pillow</strong> - 图像处理</li>
+                </ul>
+                
+                <h2>安装步骤</h2>
+                <h3>1. 克隆项目</h3>
+                <pre><code>git clone https://github.com/pinacc640/xiaohongshu-tool.git
+cd xiaohongshu-tool</code></pre>
+                
+                <h3>2. 安装依赖</h3>
+                <pre><code>pip install -r requirements.txt</code></pre>
+                
+                <h3>3. 配置API</h3>
+                <p>获取 <a href="https://aistudio.google.com/apikey">Gemini API Key</a></p>
+                <pre><code>export GEMINI_API_KEY="你的密钥"</code></pre>
+                
+                <h3>4. 准备输入</h3>
+                <p>将3张产品截图放入 <code>input/</code> 目录</p>
+                
+                <h2>使用方法</h2>
+                <h3>命令行方式</h3>
+                <pre><code>python main.py --title "产品名称"</code></pre>
+                
+                <h3>Web界面方式</h3>
+                <pre><code>streamlit run web_app.py</code></pre>
+                <p>然后在浏览器打开 <code>http://localhost:8501</code></p>
+                
+                <h2>封面图方案</h2>
+                <p>工具提供多种封面图生成方案，按优先级自动回退：</p>
+                <ol>
+                    <li><strong>Gemini 2.5 Flash Image</strong> - 最高质量，需付费</li>
+                    <li><strong>OpenAI gpt-image-1</strong> - 高质量，需付费</li>
+                    <li><strong>SiliconFlow FLUX.1-dev</strong> - 推荐，新用户免费</li>
+                    <li><strong>Pollinations</strong> - 完全免费</li>
+                </ol>
+                <p><strong>推荐：</strong>注册 <a href="https://cloud.siliconflow.cn">硅基流动</a>，新账号送¥14额度，约700张免费图片</p>
+                
+                <h2>输出示例</h2>
+                <p>运行后在 <code>output/</code> 目录生成：</p>
+                <pre><code>output/20260529_143022_产品名/
+├── note_1.txt          # 第1篇文案
+├── note_2.txt          # 第2篇文案
+├── note_3.txt          # 第3篇文案
+├── cover_1.png         # 第1张封面
+├── cover_2.png         # 第2张封面
+├── cover_3.png         # 第3张封面
+└── summary.json        # 汇总数据</code></pre>
+                
+                <h2>文案风格</h2>
+                <p>生成的文案特点：</p>
+                <ul>
+                    <li>务实不夸张</li>
+                    <li>像朋友推荐一样自然</li>
+                    <li>有具体使用细节</li>
+                    <li>适当口语化</li>
+                </ul>
+                
+                <h2>注意事项</h2>
+                <ul>
+                    <li>需要科学上网访问Google API</li>
+                    <li>注意API调用次数，避免超额</li>
+                    <li>生成内容仅供参考，发布前请审核</li>
+                    <li>封面图生成偶尔会失败，工具会自动重试</li>
+                </ul>
+                
+                <h2>项目地址</h2>
+                <p><a href="https://github.com/pinacc640/xiaohongshu-tool">GitHub: pinacc640/xiaohongshu-tool</a></p>
+                <p>欢迎 Star ⭐ 和提交 Issue！</p>
+            </div>
+            
+            <footer class="post-footer">
+                <a href="../blog.html" class="back-link">← 返回博客列表</a>
+            </footer>
+        </div>
+    </article>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 我的个人网站. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
