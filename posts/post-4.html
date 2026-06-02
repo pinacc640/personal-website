@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Deutsch：一个自己用的德语学习工具 — pinacc640</title>
+    <meta name="description" content="把 YouTube 德语视频变成双语字幕 + AI 语法讲解的学习工具。Whisper 听写、DeepSeek 翻译、单词本、Anki 导出，全本地运行。">
+    <meta name="keywords" content="德语学习, YouTube, AI, Whisper, DeepSeek, 字幕, 翻译">
+    <meta name="author" content="pinacc640">
+    <meta property="og:title" content="YT Deutsch：一个自己用的德语学习工具">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../video-background.css">
+</head>
+<body>
+    <!-- 视频背景 -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="../videos/background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">pinacc640</div>
+            <ul class="nav-links">
+                <li><a href="../index.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="../about.html" data-i18n="nav.about">关于我</a></li>
+                <li><a href="../blog.html" data-i18n="nav.blog">博客</a></li>
+                <li><a href="../project.html" data-i18n="nav.project">项目</a></li>
+                <li><a href="../automation.html" data-i18n="nav.automation">幕后</a></li>
+                <li><a href="../resources.html" data-i18n="nav.resources">资源分享</a></li>
+                <li><a href="../contact.html" data-i18n="nav.contact">联系我</a></li>
+            </ul>
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button type="button" data-lang="zh">中</button>
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="de">DE</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 文章内容 -->
+    <article>
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-date">2026.06.02</div>
+                <h1 class="post-title">YT Deutsch：一个自己用的德语学习工具</h1>
+            </header>
+
+            <div class="post-content">
+                <div class="post-cjk-notice" data-i18n="post.available_chinese_only">📖 本文仅有中文版本。</div>
+
+                <h2>从需求说起</h2>
+                <p>我在学德语，目标是 C1。日常刷 YouTube 看德语内容是最自然的输入方式——但有个问题：很多 Vlog、访谈、播客类视频<strong>根本没有字幕</strong>。</p>
+                <p>有字幕的靠 YouTube 自动生成，准确率还行。但我想要的是：<strong>德语原文 + 中文翻译并行显示，点单词能查意思，不会的词能收藏，看完能导出到 Anki 复习。</strong></p>
+                <p>市面上没有这样的工具，那就自己写一个。</p>
+
+                <h2>架构设计</h2>
+                <p>整个流程是一条流水线：</p>
+                <pre><code>YouTube 链接
+    ↓  yt-dlp 下载音频（16kHz WAV）
+    ↓  faster-whisper 德语听写（GPU 加速）
+    ↓  合并短句为自然段落
+    ↓  DeepSeek API 逐句翻译成中文
+    ↓  提取所有单词 → DeepSeek 批量翻译（单词表）
+    ↓  DeepSeek 为每句生成语法讲解
+    ↓
+  📦 输出
+    ├── player.html     ← 本地 HTML 播放器
+    ├── bilingual.srt   ← 双语字幕（可拖进 VLC）
+    ├── subtitles.json  ← 结构化数据
+    └── video.mp4       ← 下载的视频</code></pre>
+
+                <h2>技术栈</h2>
+                <ul>
+                    <li><strong>Python</strong> — 主语言，胶水把所有环节串起来</li>
+                    <li><strong>yt-dlp</strong> — YouTube 下载，支持 cookies 绕过 bot 检测</li>
+                    <li><strong>faster-whisper</strong> — 基于 ctranslate2 的 Whisper 实现，比原版快 3-4 倍</li>
+                    <li><strong>DeepSeek API</strong> — 翻译 + 单词表 + AI 语法讲解，价格便宜质量好</li>
+                    <li><strong>CUDA 12.x</strong> — RTX 4060 加速，20 分钟视频 2-3 分钟跑完 large-v3</li>
+                </ul>
+
+                <h2>关于 Whisper 模型的坑</h2>
+                <p>一开始图快用 <code>tiny</code> 模型（140MB），跑出来全是幻听——"互联网是圆的"这种胡话重复了好几遍。这不是 bug，是 tiny 本身的局限：它只有 4 层 transformer，碰到背景音乐和多人说话就放飞自我了。</p>
+                <p>正确做法是用 <code>large-v3</code> 或至少 <code>medium</code>，配合 GPU 加速。我一开始 CPU 硬扛 medium，一个 20 分钟的视频跑了 40 分钟。后来装上 CUDA，同样的任务 2 分钟搞定。</p>
+
+                <h2>学习功能</h2>
+                <p>播放器不只是字幕同步，还嵌入了几个真正有用的学习功能：</p>
+
+                <h3>点词查译</h3>
+                <p>德语原文的每个单词都是可点击的。点一下弹出中文释义和语法信息。所有单词在脚本运行阶段就通过 DeepSeek 批量翻译好了，嵌入在 HTML 里，不需要联网。</p>
+
+                <h3>生词本 + Anki 导出</h3>
+                <p>点单词释义弹窗里的「加入生词本」，单词自动存入 localStorage。生词本面板在右下角，可以折起展开，随时回顾。点「Anki CSV」直接下载制表符分隔的 CSV 文件，导入 Anki 就是卡组。</p>
+
+                <h3>AI 语法讲解</h3>
+                <p>这是最实用的功能。每句字幕右侧有个「AI」按钮（鼠标悬停显示），点击弹出 DeepSeek 预生成的语法讲解，包含：</p>
+                <ul>
+                    <li>语法要点：时态、语态、从句结构</li>
+                    <li>词汇搭配：固定搭配、介词用法</li>
+                    <li>直译 VS 自然中文：为什么不能逐字翻译</li>
+                    <li>使用场景：这句在日常德语中什么时候用</li>
+                </ul>
+                <p>讲解是脚本阶段就生成好的，离线也能看。77 句字幕大概花 30 秒生成，DeepSeek 费用不到 1 分钱。</p>
+
+                <h3>快捷键</h3>
+                <p>Space 暂停/播放、← → 跳转 5 秒、R 复读当前句、Esc 关闭弹窗。调速滑条从 0.25x 到 2x，精听用 0.75x 很舒服。</p>
+
+                <h2>一个关于 GFW 的插曲</h2>
+                <p>在 Windows 上配 CUDA 环境遇到了经典的中国网络问题：PyPI 上 nvidia-cublas 包 500MB+，GFW 每次下载到一半就掐断。pip 报 hash mismatch，curl 也断。试了镜像源、代理、断点续传全部不顶用。</p>
+                <p>最后 winget 只能装到 CUDA 13.3（太新了，ctranslate2 不兼容），折腾半天发现 CUDA 13 和 12 的 cublas API 不兼容。解决方案是手动从官网下 CUDA 12.6 装上，马上识别。</p>
+                <p>这种破事真的只有中国开发者才懂。🤷</p>
+
+                <h2>运行一条命令</h2>
+                <pre><code>pip install yt-dlp faster-whisper openai python-dotenv srt
+
+python yt_deutsch.py "YouTube链接" --model medium</code></pre>
+                <p>然后打开 <code>output/视频标题/player.html</code>，所有功能离线可用。</p>
+
+                <h2>项目地址</h2>
+                <p><a href="https://github.com/pinacc640/deutsche" target="_blank" rel="noopener">GitHub: pinacc640/deutsche</a></p>
+                <p>欢迎 Star ⭐ 和提交 Issue。</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- 底部导航 -->
+    <nav class="post-footer-nav">
+        <a href="../blog.html" class="back-to-blog">← 返回博客列表</a>
+    </nav>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <p>© 2026 pinacc640 · <a href="https://github.com/pinacc640" target="_blank" rel="noopener">GitHub</a> · <a href="../contact.html">公众号「棱镜PLSM」</a></p>
+    </footer>
+
+    <script src="../effects.js"></script>
+</body>
+</html>

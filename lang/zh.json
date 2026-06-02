@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "home": "首页",
     "about": "关于我",
@@ -70,6 +70,8 @@
     "page_subtitle": "我的笔记、教程与思考",
     "post3_title": "小红书封面卡片生成工具 - 完全教程",
     "post3_excerpt": "分享一个我自己在用的小红书内容创作工具：输入 3 张产品截图 + 标题，自动生成 3 张封面图和 3 份完整文案。基于 Gemini 2.5 Flash 多模态 AI，支持多种封面图生成方案，新手也能用...",
+    "post4_title": "YT Deutsch：一个自己用的德语学习工具",
+    "post4_excerpt": "YouTube 德语视频 → 双语字幕 + AI 语法讲解的一站式工具。Whisper 听写、DeepSeek 翻译、点词查译、生词本、Anki 导出、每句 AI 语法讲解。全本地运行，支持 GPU 加速。",
     "post1_title": "欢迎来到我的博客",
     "post1_excerpt": "这是我的第一篇博客文章。在这里，我将分享我的学习心得、项目经验和生活感悟。希望这些内容对你有所帮助...",
     "post2_title": "如何搭建个人网站",
@@ -81,7 +83,10 @@
     "tag_ai": "AI",
     "tag_essay": "随笔",
     "tag_start": "开始",
-    "tag_website": "网站"
+    "tag_website": "网站",
+    "tag_tool": "工具",
+    "tag_python": "Python",
+    "tag_german": "德语"
   },
   "project": {
     "title": "小红书封面卡片生成工具 - pinacc640",

@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "home": "Home",
     "about": "About",
@@ -81,7 +81,10 @@
     "tag_ai": "AI",
     "tag_essay": "Essay",
     "tag_start": "Beginnings",
-    "tag_website": "Website"
+    "tag_website": "Website",
+    "tag_tool": "Tool",
+    "tag_python": "Python",
+    "tag_german": "German"
   },
   "project": {
     "title": "Xiaohongshu Cover-Card Generator — pinacc640",
