@@ -1,4 +1,4 @@
-﻿{
+﻿﻿{
   "nav": {
     "home": "首页",
     "about": "关于我",
@@ -84,6 +84,9 @@
     "tag_essay": "随笔",
     "tag_start": "开始",
     "tag_website": "网站",
+    "tag_tool": "工具",
+    "tag_python": "Python",
+    "tag_german": "德语",
     "tag_tool": "工具",
     "tag_python": "Python",
     "tag_german": "德语"
@@ -198,3 +201,5 @@
     "available_chinese_only": "📖 本文仅有中文版本。"
   }
 }
+
+

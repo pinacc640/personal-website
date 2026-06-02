@@ -1,4 +1,4 @@
-﻿{
+﻿﻿{
   "nav": {
     "home": "Home",
     "about": "About",
@@ -82,6 +82,9 @@
     "tag_essay": "Essay",
     "tag_start": "Beginnings",
     "tag_website": "Website",
+    "tag_tool": "Tool",
+    "tag_python": "Python",
+    "tag_german": "German",
     "tag_tool": "Tool",
     "tag_python": "Python",
     "tag_german": "German"
@@ -196,3 +199,5 @@
     "available_chinese_only": "📖 This article is currently only available in Chinese."
   }
 }
+
+
